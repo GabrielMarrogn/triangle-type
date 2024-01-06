@@ -6,48 +6,25 @@ public class App {
         double a = sc.nextDouble();
         double b = sc.nextDouble();
         double c = sc.nextDouble();
-        double temp = 0;
-        double temp2 = 0;
+        double aux = 0;
+
+        double[] arr = {a,b,c};
+
         sc.close();
 
-        if(c > a && c > b && b > a ){
-            temp = a;
-            a = c;
-            //b = b;
-            c = temp;
-        }else if(c > a && c > b && a > b){
-            temp = a;
-            temp2 = b;
-            a = c;
-            b = temp;
-            c = temp2;
-        }else if(b > a && b > c && c > a){
-            temp = a;
-            a = b;
-            b = c;
-            c = temp;
-        }else if (b > a && b > c && a > c){
-            temp =a;
-            temp2 = c;
-            a = b;
-            b = temp;
-            c = temp2;
-        }else if(a > b && a > c && c > b){
-            temp = b;
-            //a = a;
-            b = c;
-            c = temp;
-        }else if(a == b && c > a){
-            temp = a;
-            a = c;
-            c = temp;
-        }else if (a == c && b > a ){
-            temp = a;
-            a = b;
-            b = temp;
+        for(int i = 0; i<3; i++){
+            for(int j = 0; j<2; j++){
+                if(arr[j] < arr[j + 1]){
+                    aux = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = aux;
+                }
+            }
         }
 
-        
+        a = arr[0];
+        b = arr[1];
+        c = arr[2];
 
         if(a >= b + c){
             System.out.println("NAO FORMA TRIANGULO");
@@ -69,7 +46,6 @@ public class App {
         }
         }
         
-
     
     }
 }
